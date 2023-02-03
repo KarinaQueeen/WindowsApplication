@@ -1,0 +1,37 @@
+﻿<Window x:Class="Progect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Progect"
+        mc:Ignorable="d"
+        Title="   L-PAK" Height="450" Width="800" Icon="/Progect.ico" >
+    <Grid>
+        <TabControl>
+            <TabItem Header="КЛИЕНТЫ" Background="{x:Null}" Foreground="#FF774342" FontFamily="Arial Black" Padding="45,2,45,2">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox  Grid.ColumnSpan="3" TextWrapping="Wrap" Text="ПРИМЕЧАНИЕ" VerticalAlignment="Bottom" Background="#FFBE8E74" Height="150" FontFamily="Arial Black" Foreground="White" HorizontalContentAlignment="Center"/>
+
+                    <DataGrid Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="0" Margin="0,0,0,150"/>
+                    <DataGrid Grid.ColumnSpan="1" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="2" Margin="0,0,0,150"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="ЗАЯВКИ" Foreground="#FF774342" FontFamily="Segoe UI Black" Padding="50,2,50,2">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TEST" Foreground="#FF774342" FontFamily="Segoe UI Black" Padding="50,2,50,2">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
