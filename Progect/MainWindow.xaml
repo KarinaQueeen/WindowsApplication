@@ -15,19 +15,45 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox  Grid.ColumnSpan="3" TextWrapping="Wrap" Text="ПРИМЕЧАНИЕ" VerticalAlignment="Bottom" Background="#FFBE8E74" Height="150" FontFamily="Arial Black" Foreground="White" HorizontalContentAlignment="Center"/>
+                    
+                    
+                    <TextBox x:Name="Comment" Grid.ColumnSpan="3" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="#FFBE8E74" Height="150" FontFamily="Arial Black" Foreground="White" HorizontalContentAlignment="Center"/>
 
-                    <DataGrid Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="0" Margin="0,0,0,150"/>
-                    <DataGrid Grid.ColumnSpan="1" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="2" Margin="0,0,0,150"/>
+                    
+                    
+                    <DataGrid x:Name="leftGrid" Grid.ColumnSpan="2"  Grid.Column="0" Margin="0,0,0,150" AutoGenerateColumns="False" SelectionChanged="leftGrid_SelectionChanged">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto" />
+                            <DataGridTextColumn Header="ИНН" Binding="{Binding Path=innClient}" Width="Auto" />
+                            <DataGridTextColumn Header="Сфера деятельности" Binding="{Binding Path=activityClient}" Width="Auto" />
+                            <DataGridTextColumn Header="Кол-во заявок" Binding="{Binding Path=countApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="Последняя заявка" Binding="{Binding Path=dateLastApplication}" Width="Auto" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <DataGrid x:Name="RightGrid" AutoGenerateColumns="False" Grid.ColumnSpan="1" Grid.Column="2" Margin="0,0,0,150">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дата заявки" Binding="{Binding Path=dateApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="Наименование работ" Binding="{Binding Path=nameApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="Описание работ" Binding="{Binding Path=commentApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Path=statusApplication}" Width="Auto" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="ЗАЯВКИ" Foreground="#FF774342" FontFamily="Segoe UI Black" Padding="50,2,50,2">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="TEST" Foreground="#FF774342" FontFamily="Segoe UI Black" Padding="50,2,50,2">
-                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="AppGrid" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дата заявки" Binding="{Binding Path=dateApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="Наименование работ" Binding="{Binding Path=nameApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto" />
+                            <DataGridTextColumn Header="Описание работ" Binding="{Binding Path=commentApplication}" Width="Auto" />
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Path=statusApplication}" Width="Auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
 
