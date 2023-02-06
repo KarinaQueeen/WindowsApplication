@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.IO;
 
 namespace Progect
 {
@@ -25,10 +26,12 @@ namespace Progect
     /// </summary>
     public partial class MainWindow : Window
     {
-        const string dbfile = "Data Source=C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Progect\\Progect\\DataBase.db";
+        string dbfile = "Data Source=";
         public MainWindow()
         {
             InitializeComponent();
+            using (var f = new StreamReader(@"Config.txt"))
+            { dbfile += f.ReadLine(); }; 
             ReadDB();
         }
 
