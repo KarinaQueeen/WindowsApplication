@@ -6,25 +6,38 @@
         xmlns:local="clr-namespace:Progect"
         mc:Ignorable="d"
         Title="   L-PAK" Height="450" Width="800" Icon="/Progect.ico" >
+    
     <Grid>
+        
         <TabControl>
+            
             <TabItem Header="КЛИЕНТЫ" Background="{x:Null}" Foreground="#FF774342" FontFamily="Arial Black" Padding="45,2,45,2">
+                
                 <Grid Background="#FFE5E5E5">
+                    
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
-                    
-                    <TextBox x:Name="Comment" Grid.ColumnSpan="3" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="#FFBE8E74" Height="150" FontFamily="Arial Black" Foreground="White" HorizontalContentAlignment="Center"/>
 
-                    
-                    
-                    <DataGrid x:Name="leftGrid" Grid.ColumnSpan="2"  Grid.Column="0" Margin="0,0,0,150" AutoGenerateColumns="False" SelectionChanged="leftGrid_SelectionChanged">
 
+                    <TextBox x:Name="Comment" IsReadOnly="True" Grid.ColumnSpan="3" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="#FFE9CEBF" Height="150" FontFamily="Arial Black" Foreground="White" Padding="0,40,0,0"/>
+                    <Label Grid.ColumnSpan="3" Content="Примечание" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Margin="0,0,1,130" Foreground="#FF774342" />
+
+                    <DataGrid x:Name="LeftGrid" IsReadOnly="True" Grid.ColumnSpan="2"  Grid.Column="0" Margin="0,0,0,150" AutoGenerateColumns="False" SelectionChanged="leftGrid_SelectionChanged">
+                        
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Редактировать клиента" Click="MenuItem_Click_Edit_Client"  />
+                                <MenuItem Header="Удалить клиента" Click="MenuItem_Click_Delete_Client"  />
+                                <MenuItem Header="Добавить нового клиента" Click="MenuItem_Click_Add_Client"  />
+                             </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto" />
+                            <DataGridTextColumn Header="ID" Binding="{Binding Path=idClient}" Width="Auto" Visibility="Hidden" />
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto" Visibility="Visible" />
                             <DataGridTextColumn Header="ИНН" Binding="{Binding Path=innClient}" Width="Auto" />
                             <DataGridTextColumn Header="Сфера деятельности" Binding="{Binding Path=activityClient}" Width="Auto" />
                             <DataGridTextColumn Header="Кол-во заявок" Binding="{Binding Path=countApplication}" Width="Auto" />
@@ -32,8 +45,18 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <DataGrid x:Name="RightGrid" AutoGenerateColumns="False" Grid.ColumnSpan="1" Grid.Column="2" Margin="0,0,0,150">
+                    
+                    <DataGrid x:Name="RightGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.ColumnSpan="1" Grid.Column="2" Margin="0,0,0,150">
+                        
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить заявку" Click="MenuItem_Click_Add_Application" />
+                                <MenuItem Header="Удалить заявку" Click="MenuItem_Click_Delete_Application" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Path=idApplication}" Width="Auto" Visibility="Hidden" />
                             <DataGridTextColumn Header="Дата заявки" Binding="{Binding Path=dateApplication}" Width="Auto" />
                             <DataGridTextColumn Header="Наименование работ" Binding="{Binding Path=nameApplication}" Width="Auto" />
                             <DataGridTextColumn Header="Описание работ" Binding="{Binding Path=commentApplication}" Width="Auto" />
@@ -41,23 +64,41 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
+                    
                 </Grid>
+                
             </TabItem>
+            
             <TabItem Header="ЗАЯВКИ" Foreground="#FF774342" FontFamily="Segoe UI Black" Padding="50,2,50,2">
+                
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="AppGrid" AutoGenerateColumns="False">
+                   
+                    <DataGrid x:Name="AppGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                        
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить заявку" Click="MenuItem_Click_Add_Application"  />
+                                <MenuItem Header="Удалить заявку" Click="MenuItem_Click_Delete_Application"  />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Path=idApplication}" Width="Auto" Visibility="Hidden" />
                             <DataGridTextColumn Header="Дата заявки" Binding="{Binding Path=dateApplication}" Width="Auto" />
                             <DataGridTextColumn Header="Наименование работ" Binding="{Binding Path=nameApplication}" Width="Auto" />
-                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto" />
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto"  />
                             <DataGridTextColumn Header="Описание работ" Binding="{Binding Path=commentApplication}" Width="Auto" />
                             <DataGridTextColumn Header="Статус" Binding="{Binding Path=statusApplication}" Width="Auto" />
                         </DataGrid.Columns>
+                        
                     </DataGrid>
+                    
                 </Grid>
+                
             </TabItem>
 
         </TabControl>
 
     </Grid>
+    
 </Window>

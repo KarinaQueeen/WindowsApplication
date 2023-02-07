@@ -74,7 +74,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RightTable.cs" />
+    <Compile Include="ApplicationAdd.xaml.cs">
+      <DependentUpon>ApplicationAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClassActivity.cs" />
+    <Compile Include="ClassStatusApplication.cs" />
+    <Compile Include="ClientAdd.xaml.cs">
+      <DependentUpon>ClientAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClientEdit.xaml.cs">
+      <DependentUpon>ClientEdit.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ApplicationAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClientAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClientEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,8 +105,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AppTable.cs" />
-    <Compile Include="LeftTable.cs" />
+    <Compile Include="ClassApplication.cs" />
+    <Compile Include="ClassClient.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -108,6 +130,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataBase.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -119,6 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Progect.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
