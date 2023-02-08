@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Progect"
         mc:Ignorable="d"
         Title="НОВЫЙ КЛИЕНТ" Height="450" Width="800" Icon="/Progect.ico">
-    
+
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -16,22 +16,22 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
-        
+
         <TextBlock Text="ФИО" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF774342" FontFamily="Arial Black" FontSize="14" />
         <TextBlock Text="ИНН" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="14" Foreground="#FF774342"/>
         <TextBlock Text="Сфера деятельности" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF774342" FontFamily="Arial Black" FontSize="14"/>
         <TextBlock Text="Примечание" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="14" Foreground="#FF774342"/>
         <Button Name ="Save" Grid.ColumnSpan="2" Content="СОХРАНИТЬ" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Padding="19,10,20,10" Background="#FFE9CEBF" Click="Save_Click" />
-        <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="50,0,50,0"/>
-        <TextBox Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center" Margin="50,0,50,0"/>
-        <ComboBox x:Name="ComboActivity" DisplayMemberPath="activityClient" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="50,0,50,0" SelectionChanged="ComboActivity_SelectionChanged"/>
-        <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="50,0,50,0"/>
-
+        <TextBox x:Name="TBName" Grid.Column="1" VerticalAlignment="Center" Margin="50,0,50,0"/>
+        <TextBox x:Name="TBInn" Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center" Margin="50,0,50,0"/>
+        <ComboBox x:Name="ComboActivity" IsReadOnly="True" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="50,0,50,0" />
+        <TextBox x:Name="TBComment" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="50,0,50,0"/>
+        
     </Grid>
-    
+
 </Window>

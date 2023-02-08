@@ -77,8 +77,7 @@
     <Compile Include="ApplicationAdd.xaml.cs">
       <DependentUpon>ApplicationAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ClassActivity.cs" />
-    <Compile Include="ClassStatusApplication.cs" />
+    <Compile Include="ClassApplication.cs" />
     <Compile Include="ClientAdd.xaml.cs">
       <DependentUpon>ClientAdd.xaml</DependentUpon>
     </Compile>
@@ -105,7 +104,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ClassApplication.cs" />
     <Compile Include="ClassClient.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

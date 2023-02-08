@@ -12,8 +12,8 @@ namespace Progect
         public string dateApplication { get; set; }
         public string nameApplication { get; set; }
         public string nameClient { get; set; }
-        public string commentApplication { get; set; } 
-        public string statusApplication { get; set; } 
+        public string commentApplication { get; set; }
+        public string statusApplication { get; set; }
 
     }
 }
