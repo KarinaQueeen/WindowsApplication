@@ -37,7 +37,7 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding Path=idClient}" Width="Auto" Visibility="Hidden" />
-                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto" Visibility="Visible" />
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Path=nameClient}" Width="Auto"  />
                             <DataGridTextColumn Header="ИНН" Binding="{Binding Path=innClient}" Width="Auto" />
                             <DataGridTextColumn Header="Сфера деятельности" Binding="{Binding Path=activityClient}" Width="Auto" />
                             <DataGridTextColumn Header="Кол-во заявок" Binding="{Binding Path=countApplication}" Width="Auto" />

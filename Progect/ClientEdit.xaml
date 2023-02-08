@@ -26,11 +26,11 @@
         <TextBlock Text="ИНН" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="14" Foreground="#FF774342"/>
         <TextBlock Text="Сфера деятельности" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF774342" FontFamily="Arial Black" FontSize="14"/>
         <TextBlock Text="Примечание" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="14" Foreground="#FF774342"/>
-        <Button Name ="Save" Grid.ColumnSpan="2" Content="СОХРАНИТЬ" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Padding="19,10,20,10" Background="#FFE9CEBF" />
-        <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="50,0,50,0"/>
-        <TextBox Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center" Margin="50,0,50,0"/>
-        <ComboBox x:Name="ComboActivity" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="50,0,50,0"/>
-        <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="50,0,50,0"/>
+        <Button Name ="Save" Grid.ColumnSpan="2" Content="СОХРАНИТЬ" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Padding="19,10,20,10" Background="#FFE9CEBF" Click="Save_Click_1" />
+        <ComboBox x:Name="ComboFio" IsReadOnly="True" Grid.Column="1" VerticalAlignment="Center" Margin="50,0,50,0" SelectionChanged="PrintClient"/>
+        <TextBox x:Name="TBInn" Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center" Margin="50,0,50,0"/>
+        <ComboBox x:Name="ComboActivity" IsReadOnly="True" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="50,0,50,0"/>
+        <TextBox x:Name="TBComment" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="50,0,50,0"/>
 
     </Grid>
     
