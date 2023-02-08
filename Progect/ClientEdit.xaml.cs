@@ -145,7 +145,7 @@ namespace Progect
                 //      SQLiteDataReader reader = command.ExecuteReader();
                 //      connection.Close();
                 //  }
-                MessageBox.Show("Данные сохранены!");
+                
             }
         }
     }
