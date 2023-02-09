@@ -1,0 +1,62 @@
+CREATE TABLE CLIENT 
+(
+id_client INTEGER PRIMARY KEY UNIQUE NOT NULL,
+FIO TEXT,
+INN TEXT,
+activity INTEGER REFERENCES ACTIVITY (id_activity) ON DELETE SET NULL ON UPDATE SET NULL,
+comment TEXT
+);
+
+CREATE TABLE ACTIVITY 
+(
+id_activity INTEGER PRIMARY KEY UNIQUE NOT NULL,
+object_activity TEXT
+);
+
+CREATE TABLE APPLICATION 
+(
+id_application INTEGER PRIMARY KEY UNIQUE NOT NULL,
+id_client INTEGER REFERENCES CLIENT (id_client) ON DELETE CASCADE ON UPDATE CASCADE,
+date TEXT,
+job TEXT,
+description TEXT,
+status INTEGER REFERENCES STATUS (id_status) ON DELETE SET NULL ON UPDATE SET NULL);
+
+CREATE TABLE STATUS 
+(
+id_status INTEGER PRIMARY KEY UNIQUE NOT NULL,
+object_status TEXT
+);
+
+INSERT INTO ACTIVITY VALUES
+(1, '1 сфера деятельности'),
+(2, '2 сфера деятельности'),
+(3, '3 сфера деятельности');
+
+INSERT INTO CLIENT VALUES
+(1, 'Иванов Иван Иванович', '111111', 1, 'Информация об Иванове И. И.'),
+(2, 'Свиридова Елена Викторовна', '222222', 2, 'Информация о Свиридовой Е. В.'),
+(3, 'Павлов Юлий Львович', '333333', 3, 'Информация о Павлове Ю. Л.'),
+(4, 'Тихонов Егор Тарасович', '444444', 1, 'Информация о Тихонове Е. Т.'),
+(5, 'Гордеева Ольга Валентинович', '555555', 2, 'Информация о Гордеевой О. В.'),
+(6, 'Быков Руслан Алексеевич', '666666', 3, 'Информация о Быкове Р. А.');
+
+INSERT INTO STATUS VALUES
+(1, 'новая'),
+(2, 'в работе'),
+(3, 'выполнена');
+
+
+INSERT INTO APPLICATION VALUES
+(1, 1, '2022-01-01', 'Установка', 'Информация об установке', 3),
+(2, 1, '2022-02-02', 'Настройка', 'Информация о настройке', 3),
+(3, 1, '2022-03-03', 'Подключение', 'Информация о подключении', 3),
+(4, 2, '2022-04-04', 'Анализ данных', 'Информация об анализе', 3),
+(5, 3, '2022-05-05', 'Настройка', 'Информация о настройке', 2),
+(6, 3, '2022-06-06', 'Установка', 'Информация об установке', 1),
+(7, 4, '2022-07-07', 'Подключение', 'Информация о подключении', 2),
+(8, 4, '2022-08-08', 'Анализ данных', 'Информация об анализе', 2),
+(9, 5, '2022-09-09', 'Настройка', 'Информация о настройке', 2),
+(10, 5, '2022-10-10', 'Установка', 'Информация об установке', 1),
+(11, 5, '2022-11-11', 'Подключение', 'Информация о подключении', 2),
+(12, 5, '2022-12-12', 'Анализ данных', 'Информация об анализе', 1);

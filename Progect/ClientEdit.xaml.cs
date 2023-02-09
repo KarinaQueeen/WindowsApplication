@@ -66,10 +66,6 @@ namespace Progect
             }
         }
 
-
-       
-            
-
         private void PrintClient(object sender, SelectionChangedEventArgs e)
         {
             if (ComboFio.Text != "")
@@ -89,8 +85,6 @@ namespace Progect
                     TBComment.Text = (string)reader["comment"];
 
                     connection.Close();
-
-                   
 
                 }
             }
@@ -126,26 +120,16 @@ namespace Progect
 
                 if (rsltMessageBox == MessageBoxResult.Yes)
                 {
-                   // using (SQLiteConnection connection = new SQLiteConnection(dbfile))
-                   // {
-                   //     connection.Open();
-                   ///     SQLiteCommand command = new SQLiteCommand($"DELETE FROM CLIENT WHERE id_client='{id}'", connection);
-                   //     SQLiteDataReader reader = command.ExecuteReader();
-                   //     connection.Close();
-                  //  }
+                    using (SQLiteConnection connection = new SQLiteConnection(dbfile))
+                    {
+                        connection.Open();
+                        SQLiteCommand command = new SQLiteCommand ($"UPDATE CLIENT SET INN = '{TBInn.Text}', activity = {cbDic2[ComboActivity.Text]}, comment = '{TBComment.Text}' WHERE id_client = {cbDic1[ComboFio.Text]}", connection);
+                        SQLiteDataReader reader = command.ExecuteReader();
+                        connection.Close();
+                    }
                     MessageBox.Show($"Клиент с именем: '{ComboFio.Text}' изменен!", Title = "L-PAK"); ;
                    
                 }
-
-                //string n;
-                // using (SQLiteConnection connection = new SQLiteConnection(dbfile))
-                // {
-                //     connection.Open();
-                //     SQLiteCommand command = new SQLiteCommand ($"UPDATE CLIENT SET FIO = '{n}' WHERE FIO = '{n}'", connection);
-                //      SQLiteDataReader reader = command.ExecuteReader();
-                //      connection.Close();
-                //  }
-                
             }
         }
     }
